@@ -1,0 +1,14 @@
+.buttonItem:hover{
+    -fx-color: #85276A;
+    -fx-border-color: #85276A;
+    -fx-border-width: 0 0 3px 0;
+}
+
+.buttonItem {
+    -fx-border-radius: 0;
+    -fx-background-color: #333333
+}
+
+.toolBar {
+    -fx-background-color: #333333
+}

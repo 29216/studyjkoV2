@@ -1,0 +1,46 @@
+.buttonItem:hover{
+    -fx-color: #85276A;
+    -fx-border-color: #85276A;
+    -fx-border-width: 0 0 3px 0;
+}
+
+.buttonItem {
+    -fx-border-radius: 0;
+    -fx-background-color: #333333;
+}
+
+.toolBar {
+    -fx-background-color: #333333;
+}
+
+.menu-button > arrow-button{
+    -fx-padding: 0;
+}
+
+.greetingLabel {
+    -fx-background-radius: 20;
+}
+
+.menu-button > .arrow-button {
+    -fx-padding: 0;
+}
+
+.menu-button {
+    -fx-border-radius: 0;
+    -fx-background-color: #333333;
+}
+
+.menu-button:hover {
+    -fx-border-color: #85276A;
+    -fx-border-width: 0 0 3px 0;
+}
+
+.menu-button > .arrow-button > .arrow {
+    -fx-padding: 0;
+}
+
+.menu-item {
+    -fx-background-color: #333333;
+    -fx-border-color: #333333;
+    -fx-color: white;
+}

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../login-registration-page.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.studyjko.controller.LoginRegistrationController">
+    <center>
+        <AnchorPane prefHeight="700.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@../../../group/studyjko/img/background_studio_image.png" />
+                    </image></ImageView>
+                <VBox fx:id="registrationVBox" alignment="CENTER" fillWidth="false" layoutX="400.0" layoutY="100.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #1E1E1E; -fx-background-radius: 30;">
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="350.0" translateY="-25.0">
+                            <children>
+                                <ImageView fitHeight="85.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../group/studyjko/img/studyjko-logo-2.png" />
+                                    </image></ImageView>
+                                <Label alignment="CENTER" prefHeight="100.0" prefWidth="276.0" text="THE PURPLE RECORDINGS" textFill="WHITE">
+                                    <font>
+                                        <Font name="JetBrains Mono Bold" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="35.0" />
+                            </padding></HBox>
+                        <TextField fx:id="emailFieldRegister" prefHeight="35.0" prefWidth="250.0" promptText="E-mail" style="-fx-background-radius: 0;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="nameFieldRegister" layoutX="80.0" layoutY="258.0" prefHeight="35.0" prefWidth="250.0" promptText="Imię" style="-fx-background-radius: 0;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="surnameFieldRegister" layoutX="10.0" layoutY="285.0" prefHeight="35.0" prefWidth="250.0" promptText="Nazwisko" style="-fx-background-radius: 0;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="positionFieldRegister" layoutX="10.0" layoutY="303.0" prefHeight="35.0" prefWidth="250.0" promptText="Stanowisko" style="-fx-background-radius: 0;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <PasswordField fx:id="passwordFieldRegister" prefHeight="35.0" prefWidth="250.0" promptText="Hasło" style="-fx-background-radius: 0;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin></PasswordField>
+                        <PasswordField fx:id="repeatPasswordFieldRegister" layoutX="80.0" layoutY="320.0" prefHeight="35.0" prefWidth="250.0" promptText="Powtórz hasło" style="-fx-background-radius: 0;">
+                            <VBox.margin>
+                                <Insets bottom="20.0" />
+                            </VBox.margin></PasswordField>
+                        <Button fx:id="registrationOnRegistration" mnemonicParsing="false" onAction="#RegisterUser" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 0; -fx-background-color: #85276A;" text="Zarejestruj" textFill="WHITE">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin></Button>
+                        <Button fx:id="loginOnRegistration" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 0; -fx-background-color: #ffff;" text="Zaloguj" />
+                    </children>
+                </VBox>
+                <VBox fx:id="loginVBox" alignment="CENTER" fillWidth="false" layoutX="400.0" layoutY="225.0" prefHeight="320.0" prefWidth="400.0" style="-fx-background-color: #1E1E1E; -fx-background-radius: 30;">
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="350.0">
+                            <children>
+                                <ImageView fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../group/studyjko/img/studyjko-logo-2.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="25.0" />
+                                    </HBox.margin></ImageView>
+                                <Label alignment="CENTER" prefHeight="100.0" prefWidth="290.0" text="THE PURPLE RECORDINGS" textFill="WHITE">
+                                    <font>
+                                        <Font name="JetBrains Mono Bold" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children></HBox>
+                        <TextField fx:id="loginField" prefHeight="35.0" prefWidth="250.0" promptText="Login" style="-fx-background-radius: 0;">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                        </TextField>
+                        <PasswordField fx:id="passField" prefHeight="35.0" prefWidth="250.0" promptText="Hasło" style="-fx-background-radius: 0;">
+                            <VBox.margin>
+                                <Insets bottom="20.0" />
+                            </VBox.margin></PasswordField>
+                        <Button fx:id="loginOnLogin" mnemonicParsing="false" onAction="#LogIn" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 0; -fx-background-color: #85276A;" text="Zaloguj" textFill="WHITE">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin></Button>
+                        <Button fx:id="registrationOnLogin" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 0; -fx-background-color: #ffff;" text="Zarejestruj" />
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+    <top>
+        <ToolBar id="toolBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="43.0" prefWidth="200.0" styleClass="toolBar" BorderPane.alignment="CENTER">
+            <items>
+                <Button id="buttonItem" fx:id="closeButton" mnemonicParsing="false" styleClass="buttonItem" textFill="WHITE">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../group/studyjko/img/x.png" />
+                            </image>
+                        </ImageView>
+                    </graphic></Button>
+                <Button id="buttonItem" fx:id="minimizeButton" alignment="BOTTOM_CENTER" layoutX="68.0" layoutY="12.0" mnemonicParsing="false" styleClass="buttonItem" textFill="WHITE">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../group/studyjko/img/Line 11.png" />
+                            </image>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ImageView>
+                    </graphic></Button>
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" translateX="1075.0" x="1000.0">
+                    <image>
+                        <Image url="@../../../group/studyjko/img/studyjko-logo-2.png" />
+                    </image>
+                    <viewport>
+                        <Rectangle2D />
+                    </viewport>
+                </ImageView>
+            </items>
+        </ToolBar>
+    </top>
+</BorderPane>
