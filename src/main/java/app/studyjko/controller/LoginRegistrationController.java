@@ -110,7 +110,7 @@ public class LoginRegistrationController implements Initializable {
             String login = loginField.getText();
             String pass = passField.getText();
 
-            if(login.isBlank() && pass.isBlank()){
+            if(login.isBlank() || pass.isBlank()){
                 boolean result = DisplayAlert.displayAlert(AlertTypeEnum.ERROR.getAlertType(),
                         "Login Error",
                         "You have empty fields!",
@@ -168,6 +168,18 @@ public class LoginRegistrationController implements Initializable {
                     return;
                 }
             }
+
+            boolean userExist = userService.userExists(emailFieldRegisterText, passwordFieldRegisterText);
+            if(userExist)
+            {
+                boolean result = DisplayAlert.displayAlert(AlertTypeEnum.ERROR.getAlertType(),
+                        "Register Error",
+                        "You are already registered",
+                        "Try loggin in");
+                if (result) {
+                    return;
+                }
+            }
             UserDto userDto = new UserDto();
             userDto.setEmail(emailFieldRegisterText);
             userDto.setName(nameFieldRegisterText);
@@ -176,6 +188,7 @@ public class LoginRegistrationController implements Initializable {
             userDto.setPassword(passwordFieldRegisterText);
             userDto.setCreationTime(LocalDateTime.now());
             userDto.setSystemRole("User");
+            userDto.setCreationTime(LocalDateTime.now());
             userService.save(userDto);
 
             registrationVBox.setVisible(false);
