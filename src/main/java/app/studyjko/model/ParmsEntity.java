@@ -5,10 +5,13 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "parms", schema = "p38tSDIPVV", catalog = "")
+@Table(name = "parms", schema = "alebaza", catalog = "")
 public class ParmsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name = "id", nullable = false)
+    private long id;
+    @Basic
     @Column(name = "key", nullable = false, length = 255)
     private String key;
     @Basic

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
-@Table(name = "cd", schema = "p38tSDIPVV", catalog = "")
+@Table(name = "cd", schema = "alebaza", catalog = "")
 public class CdEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

@@ -14,7 +14,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void save(UserDto userDto){
+    public void save(UserDto userDto) {
         userRepository.save(mapDtoToEntity(userDto));
     }
 
@@ -22,7 +22,7 @@ public class UserService {
         Optional<List<UserEntity>> userEntity = userRepository.findByEmail(email);
         if (userEntity.isPresent()) {
             List<UserEntity> users = userEntity.get();
-            for (UserEntity user:users) {
+            for (UserEntity user : users) {
                 if (password.equals(user.getPassword()))
                     return mapEntityToDto(user);
             }
@@ -31,19 +31,21 @@ public class UserService {
         return null;
 
     }
-public boolean userExists(String email, String password){
-        Optional<List< UserEntity>> userEntities = userRepository.findByEmail(email);
-        if(userEntities.isPresent()){
+
+    public boolean userExists(String email, String password) {
+        Optional<List<UserEntity>> userEntities = userRepository.findByEmail(email);
+        if (userEntities.isPresent()) {
             List<UserEntity> users = userEntities.get();
-            return users.stream().anyMatch(user-> password.equals(user.getPassword()));
+            return users.stream().anyMatch(user -> password.equals(user.getPassword()));
         }
         return false;
-}
-    private UserEntity mapDtoToEntity(UserDto userDto){
+    }
+
+    private UserEntity mapDtoToEntity(UserDto userDto) {
         return (UserEntity) ConversionUtil.mapObject(userDto, UserEntity.class);
     }
 
-    private UserDto mapEntityToDto(UserEntity userEntity){
+    private UserDto mapEntityToDto(UserEntity userEntity) {
         return (UserDto) ConversionUtil.mapObject(userEntity, UserDto.class);
     }
 

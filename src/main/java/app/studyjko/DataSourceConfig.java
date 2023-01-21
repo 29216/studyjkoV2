@@ -14,9 +14,9 @@ public class DataSourceConfig {
     public DataSource getDataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
-        dataSourceBuilder.url("jdbc:mysql://remotemysql.com:3306/p38tSDIPVV?useSSL=false");
-        dataSourceBuilder.username("p38tSDIPVV");
-        dataSourceBuilder.password("kuUh1vwgW4");
+        dataSourceBuilder.url("jdbc:mysql://192.166.219.220/alebaza");
+        dataSourceBuilder.username("alebaza");
+        dataSourceBuilder.password("alebaza1212;");
         return dataSourceBuilder.build();
     }
 
