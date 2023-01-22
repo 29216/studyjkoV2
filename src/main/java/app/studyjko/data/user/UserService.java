@@ -41,11 +41,11 @@ public class UserService {
         return false;
     }
 
-    private UserEntity mapDtoToEntity(UserDto userDto) {
+    public UserEntity mapDtoToEntity(UserDto userDto) {
         return (UserEntity) ConversionUtil.mapObject(userDto, UserEntity.class);
     }
 
-    private UserDto mapEntityToDto(UserEntity userEntity) {
+    public UserDto mapEntityToDto(UserEntity userEntity) {
         return (UserDto) ConversionUtil.mapObject(userEntity, UserDto.class);
     }
 

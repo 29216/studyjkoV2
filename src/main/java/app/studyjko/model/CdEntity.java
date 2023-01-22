@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -23,11 +24,11 @@ public class CdEntity {
     @Column(name = "creatorId", nullable = false)
     private long creatorId;
     @Basic
-    @Column(name = "picture", nullable = true)
-    private byte[] picture;
+    @Column(name = "title", nullable = true, length = 256)
+    private String title;
     @Basic
-    @Column(name = "content", nullable = true, length = 12000)
-    private String content;
+    @Column(name = "link", nullable = true, length = 256)
+    private String link;
 
     public long getId() {
         return id;
@@ -61,34 +62,17 @@ public class CdEntity {
         this.creatorId = creatorId;
     }
 
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CdEntity cdEntity = (CdEntity) o;
-        return id == cdEntity.id && creatorId == cdEntity.creatorId && Objects.equals(creationTime, cdEntity.creationTime) && Objects.equals(modificationTime, cdEntity.modificationTime) && Arrays.equals(picture, cdEntity.picture) && Objects.equals(content, cdEntity.content);
+        return id == cdEntity.id && creatorId == cdEntity.creatorId && Objects.equals(creationTime, cdEntity.creationTime) && Objects.equals(modificationTime, cdEntity.modificationTime) && Objects.equals(title, cdEntity.title);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(id, creationTime, modificationTime, creatorId, content);
-        result = 31 * result + Arrays.hashCode(picture);
+        int result = Objects.hash(id, creationTime, modificationTime, creatorId, title);
         return result;
     }
 }
