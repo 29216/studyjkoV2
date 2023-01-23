@@ -1,0 +1,57 @@
+.buttonItem:hover{
+    -fx-color: #85276A;
+    -fx-border-color: #85276A;
+    -fx-border-width: 0 0 3px 0;
+}
+
+.buttonItem {
+    -fx-border-radius: 0;
+    -fx-background-color: #333333;
+}
+
+.toolBar {
+    -fx-background-color: #333333;
+}
+
+.menu-button > arrow-button{
+    -fx-padding: 0;
+}
+
+.greetingLabel {
+    -fx-background-radius: 20;
+}
+
+.menu-button > .arrow-button {
+    -fx-padding: 0;
+}
+
+.menu-button {
+    -fx-border-radius: 0;
+    -fx-background-color: #333333;
+}
+
+.menu-button:hover {
+    -fx-border-color: #85276A;
+    -fx-border-width: 0 0 3px 0;
+}
+
+.menu-button > .arrow-button > .arrow {
+    -fx-padding: 0;
+}
+
+.menu-item {
+    -fx-background-color: #333333;
+    -fx-border-color: #333333;
+    -fx-color: white;
+    }
+.TextBox{
+    -fx-background-color: #6D376F;
+    -fx-background-radius:150;
+    -fx-text-fill: white;
+    -fx-cursor:text;
+    -fx-font-family:"JetBrains Mono";
+    -fx-min-width:600;
+    -fx-min-height:60;
+
+
+}

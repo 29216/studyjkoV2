@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../NewAlbumPage.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.studyjko.controller.NewAlbumController">
+    <top>
+        <ToolBar id="toolBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="43.0" prefWidth="160.0" styleClass="toolBar" BorderPane.alignment="CENTER">
+            <items>
+                <Button id="buttonItem" fx:id="closeButton" mnemonicParsing="false" styleClass="buttonItem" textFill="WHITE">
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../group/studyjko/img/x.png" />
+                            </image>
+                        </ImageView>
+                    </graphic></Button>
+                <Button id="buttonItem" fx:id="maximizedScreenButton" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" styleClass="buttonItem" textFill="WHITE">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../group/studyjko/img/max.png" />
+                            </image>
+                        </ImageView>
+                    </graphic></Button>
+                <Button id="buttonItem" fx:id="minimizeButton" alignment="BOTTOM_CENTER" layoutX="68.0" layoutY="12.0" mnemonicParsing="false" styleClass="buttonItem" textFill="WHITE">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../group/studyjko/img/Line 11.png" />
+                            </image>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ImageView>
+                    </graphic></Button>
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" translateX="1082.0">
+                    <image>
+                        <Image url="@../../../group/studyjko/img/studyjko-logo-2.png" />
+                    </image>
+                </ImageView>
+            </items>
+        </ToolBar>
+    </top>
+    <center>
+        <AnchorPane prefHeight="700.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView cache="true" cacheHint="SCALE" fitHeight="800.0" fitWidth="1160.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@../../../group/studyjko/img/background_studio_image.png" />
+                    </image></ImageView>
+                <Pane id="greetingLabel" prefHeight="800.0" prefWidth="1160.0" styleClass="toolBar">
+                    <children>
+                        <Label fx:id="greetingLabel" alignment="CENTER" layoutX="40.0" layoutY="75.0" textFill="WHITE">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                  <Button layoutX="415.0" layoutY="576.0" mnemonicParsing="false" onAction="#Add" prefHeight="70.0" prefWidth="330.0" style="-fx-background-radius: 150; -fx-background-color: #6D376F;" text="DODAJ" textFill="WHITE">
+                     <font>
+                        <Font name="JetBrains Mono Regular" size="24.0" />
+                     </font>
+                  </Button>
+                  <HBox layoutX="118.0" layoutY="101.0" prefHeight="400.0" prefWidth="850.0">
+                     <children>
+                              <VBox prefHeight="400.0" prefWidth="200.0">
+                                  <children>
+                                      <Label ellipsisString="Carrois Gothic SC" prefHeight="60.0" prefWidth="200.0" text="WYKONAWCA" textFill="WHITE">
+                                          <font>
+                                              <Font name="JetBrains Mono Regular" size="24.0" />
+                                          </font>
+                                      </Label>
+                                      <Label ellipsisString="Carrois Gothic SC" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="200.0" text="ALBUM" textFill="WHITE">
+                                          <font>
+                                              <Font name="JetBrains Mono Regular" size="24.0" />
+                                          </font>
+                                          <VBox.margin>
+                                              <Insets top="50.0" />
+                                          </VBox.margin>
+                                      </Label>
+                              <Label ellipsisString="Carrois Gothic SC" layoutX="10.0" layoutY="230.0" prefHeight="60.0" prefWidth="200.0" text="TYTUŁ" textFill="WHITE">
+                                 <font>
+                                    <Font name="JetBrains Mono Regular" size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </Label>
+                                      <Label ellipsisString="Carrois Gothic SC" layoutX="10.0" layoutY="60.0" prefHeight="60.0" prefWidth="200.0" text="LINK" textFill="WHITE">
+                                          <font>
+                                              <Font name="JetBrains Mono Regular" size="24.0" />
+                                          </font>
+                                          <VBox.margin>
+                                              <Insets top="50.0" />
+                                          </VBox.margin>
+                                      </Label>
+                                  </children>
+                              </VBox>
+                              <VBox prefHeight="400.0" prefWidth="600.0">
+                                  <children>
+                                      <TextField id="TextBoxCreator" fx:id="TextBoxCreator" minHeight="60.0" minWidth="300.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="TextBox">
+                                          <font>
+                                              <Font name="JetBrains Mono Regular" size="24.0" />
+                                          </font>
+                                          <opaqueInsets>
+                                              <Insets bottom="20.0" left="20.0" top="20.0" />
+                                          </opaqueInsets>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                      </TextField>
+                              <TextField id="TextBoxAlbum" fx:id="TextBoxAlbum" layoutX="10.0" layoutY="10.0" minHeight="60.0" minWidth="300.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="TextBox">
+                                 <font>
+                                    <Font name="JetBrains Mono Regular" size="24.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets bottom="20.0" left="20.0" top="20.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                              </TextField>
+                              <TextField id="TextBoxLink" fx:id="TextBoxLink1" layoutX="10.0" layoutY="230.0" minHeight="60.0" minWidth="300.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="TextBox">
+                                 <font>
+                                    <Font name="JetBrains Mono Regular" size="24.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets bottom="20.0" left="20.0" top="20.0" />
+                                 </opaqueInsets>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField id="TextBoxLink" fx:id="TextBoxLink" layoutX="10.0" layoutY="70.0" minHeight="60.0" minWidth="300.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="TextBox">
+                                 <font>
+                                    <Font name="JetBrains Mono Regular" size="24.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets bottom="20.0" left="20.0" top="20.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                              </TextField>
+                                  </children>
+                              </VBox>
+                     </children></HBox>
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+    </center>
+    <left>
+        <VBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="40.0" styleClass="toolBar" BorderPane.alignment="CENTER">
+            <children>
+                <MenuButton mnemonicParsing="false" popupSide="RIGHT">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonItem">
+                            <image>
+                                <Image url="@../../../group/studyjko/img/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuButton>
+                <MenuButton mnemonicParsing="false" popupSide="RIGHT">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="WYKONAWCY" />
+                        <MenuItem mnemonicParsing="false" text="ALBUMY" />
+                        <MenuItem mnemonicParsing="false" text="TOP" />
+                        <MenuItem mnemonicParsing="false" text="SINGLE" />
+                        <MenuItem mnemonicParsing="false" text="PIOSENKI" />
+                    </items>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../group/studyjko/img/menu.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuButton>
+                <MenuButton mnemonicParsing="false" popupSide="RIGHT">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../group/studyjko/img/search.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuButton>
+                <MenuButton mnemonicParsing="false" popupSide="RIGHT">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../group/studyjko/img/settings.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuButton>
+                <MenuButton mnemonicParsing="false" popupSide="RIGHT">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../group/studyjko/img/169262 1.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuButton>
+            </children>
+        </VBox>
+    </left>
+</BorderPane>
