@@ -4,7 +4,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../home-page.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.studyjko.controller.HomePageController">
     <top>
@@ -37,7 +36,7 @@
                             </cursor>
                         </ImageView>
                     </graphic></Button>
-                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" translateX="1082.0">
+                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" translateX="1035.0">
                     <image>
                         <Image url="@../../../group/studyjko/img/studyjko-logo-2.png" />
                     </image>
@@ -48,20 +47,23 @@
     <center>
         <AnchorPane prefHeight="700.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView cache="true" cacheHint="SCALE" fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true">
+                <ImageView cache="true" cacheHint="SCALE" fitHeight="800.0" fitWidth="1160.0" pickOnBounds="true">
                     <image>
                         <Image url="@../../../group/studyjko/img/background_studio_image.png" />
                     </image></ImageView>
-                <Pane id="greetingLabel" layoutX="400.0" layoutY="300.0" prefHeight="200.0" prefWidth="400.0" style="-fx-background-radius: 20;" styleClass="toolBar">
-                    <children>
-                        <Label fx:id="greetingLabel" alignment="CENTER" layoutX="40.0" layoutY="75.0" textFill="WHITE">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Label>
-                        <Button layoutX="125.0" layoutY="149.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 0; -fx-background-color: #85276A;" text="Wyloguj się" textFill="WHITE" />
-                    </children>
-                </Pane>
+            <ScrollPane prefHeight="800.0" prefWidth="1160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <GridPane prefHeight="798.0" prefWidth="1158.0" styleClass="grid-pane">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="394.0" minHeight="10.0" prefHeight="127.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="671.0" minHeight="10.0" prefHeight="671.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
             </children>
         </AnchorPane>
     </center>
@@ -132,6 +134,15 @@
                         </ImageView>
                     </graphic>
                 </MenuButton>
+            <MenuButton layoutX="12.0" layoutY="92.0" mnemonicParsing="false" popupSide="RIGHT">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../group/studyjko/img/settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
             </children>
         </VBox>
     </left>

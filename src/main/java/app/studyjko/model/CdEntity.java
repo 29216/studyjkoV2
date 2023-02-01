@@ -62,6 +62,14 @@ public class CdEntity {
         this.creatorId = creatorId;
     }
 
+    public String getTitle(){
+        return title;
+    }
+
+    public void setTitle(String title){
+        this.title = title;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

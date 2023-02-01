@@ -30,17 +30,32 @@
     -fx-background-color: #333333;
 }
 
-.menu-button:hover {
+.menu-button:hover, .menu-item:hover {
     -fx-border-color: #85276A;
     -fx-border-width: 0 0 3px 0;
+}
+
+.menu-item, .menu-item:hover {
+    -fx-background-color: none;
 }
 
 .menu-button > .arrow-button > .arrow {
     -fx-padding: 0;
 }
 
-.menu-item {
+.context-menu {
     -fx-background-color: #333333;
-    -fx-border-color: #333333;
-    -fx-color: white;
+    -fx-padding: 10px 20px;
+}
+
+.menu-item .label{
+    -fx-text-fill: white;
+}
+
+.grid-pane {
+   -fx-background-color: rgba(0, 0, 0, 0.5);
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: none;
 }
