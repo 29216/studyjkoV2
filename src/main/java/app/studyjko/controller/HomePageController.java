@@ -88,6 +88,10 @@ public class HomePageController implements Initializable {
 
     }
 
+    public void addArticle(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        context.publishEvent(new StageReadyEvent(stage, NewAlbumController.class));
+    }
 
     public void LogOut(ActionEvent event) {
         try {
