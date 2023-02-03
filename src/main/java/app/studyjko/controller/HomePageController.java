@@ -37,6 +37,9 @@ public class HomePageController implements Initializable {
     @FXML
     private Button minimizeButton;
 
+    @FXML
+    private Button Details;
+
     @Autowired
     private ApplicationContext context;
     @Autowired
@@ -48,8 +51,6 @@ public class HomePageController implements Initializable {
 
     @FXML
     private ListView<CdEntity> myListView;
-
-    private CdEntity currentCd;
 
     @Autowired
     public HomePageController(FxWeaver fxWeaver) {
@@ -68,7 +69,7 @@ public class HomePageController implements Initializable {
                 System.exit(0);
             }
         });
-
+        Details.setVisible(false);
         minimizeButton.setOnMouseClicked(mouseEvent -> {
             Stage obj = (Stage) minimizeButton.getScene().getWindow();
             obj.setIconified(true);
@@ -80,13 +81,20 @@ public class HomePageController implements Initializable {
         myListView.getItems().addAll(cdDtoList);
 
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, cdEntity, t1) -> {
-            currentCd = myListView.getSelectionModel().getSelectedItem();
-            System.out.println(currentCd.getId());
+            CdEntity currentCd = myListView.getSelectionModel().getSelectedItem();
+            Details.setVisible(true);
+            UserSession.getInstance().getParameters().put("cdIdToDisplay", String.valueOf(currentCd.getId()));
         });
 
     }
 
     public void addArticle(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        UserSession.getInstance().getParameters().remove("cdIdToDisplay");
+        context.publishEvent(new StageReadyEvent(stage, NewAlbumController.class));
+    }
+
+    public void seeArticle(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         context.publishEvent(new StageReadyEvent(stage, NewAlbumController.class));
     }
@@ -99,7 +107,6 @@ public class HomePageController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 }

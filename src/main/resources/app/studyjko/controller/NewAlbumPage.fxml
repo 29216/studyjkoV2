@@ -60,7 +60,7 @@
                                 <Font size="20.0" />
                             </font>
                         </Label>
-                  <Button layoutX="415.0" layoutY="576.0" mnemonicParsing="false" onAction="#Add" onMouseClicked="#Add" prefHeight="70.0" prefWidth="330.0" style="-fx-background-radius: 150; -fx-background-color: #6D376F;" text="DODAJ" textFill="WHITE">
+                  <Button layoutX="580.0" layoutY="576.0" mnemonicParsing="false" onAction="#GoBack" onMouseClicked="#Add" prefHeight="70.0" prefWidth="330.0" style="-fx-background-radius: 150; -fx-background-color: #6D376F;" text="GoBack" textFill="WHITE">
                      <font>
                         <Font name="JetBrains Mono Regular" size="24.0" />
                      </font>
@@ -69,7 +69,7 @@
                      <children>
                               <VBox prefHeight="400.0" prefWidth="200.0">
                                   <children>
-                                      <Label ellipsisString="Carrois Gothic SC" prefHeight="60.0" prefWidth="200.0" text="WYKONAWCA" textFill="WHITE">
+                                      <Label ellipsisString="Carrois Gothic SC" prefHeight="60.0" prefWidth="200.0" text="Creator" textFill="WHITE">
                                           <font>
                                               <Font name="JetBrains Mono Regular" size="24.0" />
                                           </font>
@@ -82,7 +82,7 @@
                                               <Insets top="50.0" />
                                           </VBox.margin>
                                       </Label>
-                              <Label ellipsisString="Carrois Gothic SC" layoutX="10.0" layoutY="230.0" prefHeight="60.0" prefWidth="200.0" text="TYTUŁ" textFill="WHITE">
+                              <Label ellipsisString="Carrois Gothic SC" layoutX="10.0" layoutY="230.0" prefHeight="60.0" prefWidth="200.0" text="Title" textFill="WHITE">
                                  <font>
                                     <Font name="JetBrains Mono Regular" size="24.0" />
                                  </font>
@@ -158,6 +158,11 @@
                                   </children>
                               </VBox>
                      </children></HBox>
+                  <Button fx:id="manipulateCd" layoutX="250.0" layoutY="576.0" mnemonicParsing="false" onAction="#Add" onMouseClicked="#Add" prefHeight="70.0" prefWidth="330.0" style="-fx-background-radius: 150; -fx-background-color: #6D376F;" text="Add" textFill="WHITE">
+                     <font>
+                        <Font name="JetBrains Mono Regular" size="24.0" />
+                     </font>
+                  </Button>
                     </children>
                 </Pane>
             </children>

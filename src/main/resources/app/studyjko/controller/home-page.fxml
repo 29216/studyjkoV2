@@ -53,6 +53,8 @@
                     </image></ImageView>
             <ListView fx:id="myListView" layoutX="59.0" layoutY="49.0" prefHeight="594.0" prefWidth="892.0" style="-fx-background-color: transparent;" />
             <Button layoutX="59.0" layoutY="661.0" mnemonicParsing="false" onAction="#addArticle" prefHeight="63.0" prefWidth="223.0" text="Add article" />
+            <Button fx:id="Details" layoutX="307.0" layoutY="661.0" mnemonicParsing="false" onAction="#seeArticle" prefHeight="63.0" prefWidth="223.0" text="Details" />
+            <Button layoutX="559.0" layoutY="661.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="63.0" prefWidth="223.0" text="Logout" />
             </children>
         </AnchorPane>
     </center>

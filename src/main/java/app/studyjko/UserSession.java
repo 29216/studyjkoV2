@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @ToString
 public final class UserSession {
 
@@ -13,6 +16,9 @@ public final class UserSession {
     @Getter
     @Setter
     private UserDto userDto;
+
+    @Getter
+    private final Map<String, String> parameters = new HashMap<>();
 
     private UserSession(UserDto userDto) {
         this.userDto = userDto;

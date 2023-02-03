@@ -8,6 +8,7 @@ import app.studyjko.data.cd.CdDto;
 import app.studyjko.data.cd.CdService;
 import app.studyjko.data.user.UserDto;
 import app.studyjko.data.user.UserService;
+import app.studyjko.model.CdEntity;
 import ch.qos.logback.core.joran.event.BodyEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,6 +39,9 @@ public class NewAlbumController implements Initializable {
 
     @FXML
     private Button minimizeButton;
+
+    @FXML
+    private Button manipulateCd;
 
     @Autowired
     private CdService cdService;
@@ -74,9 +78,26 @@ public class NewAlbumController implements Initializable {
             obj.setIconified(true);
         });
 
+        if (UserSession.getInstance().getParameters().containsKey("cdIdToDisplay")){
+            CdEntity cdEntity = cdService.findCdById(Long.valueOf(UserSession.getInstance().getParameters().get("cdIdToDisplay")));
+            if (cdEntity == null) {
+                return;
+            }
+            creatorField.setText(cdEntity.getCreator());
+            albumField.setText(cdEntity.getAlbum());
+            titleField.setText(cdEntity.getTitle());
+            linkField.setText(cdEntity.getLink());
+            manipulateCd.setText("Update");
+        }
+
     }
 
 
+    public void GoBack(ActionEvent event) {
+        UserSession.getInstance().getParameters().remove("cdIdToDisplay");
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        context.publishEvent(new StageReadyEvent(stage, HomePageController.class));
+    }
     public void Add(ActionEvent event) {//AddButton
 
         String creatorFieldText = creatorField.getText();
@@ -93,11 +114,16 @@ public class NewAlbumController implements Initializable {
                 return;
             }
         }
-        CdDto cdDto = new CdDto();
+        CdDto cdDto;
+        if (UserSession.getInstance().getParameters().containsKey("cdIdToDisplay")){
+            CdEntity cdEntity = cdService.findCdById(Long.valueOf(UserSession.getInstance().getParameters().get("cdIdToDisplay")));
+            cdDto = cdService.mapEntityToDto(cdEntity);
+        } else
+            cdDto = new CdDto();
         cdDto.setCreationTime(LocalDateTime.now());
         cdDto.setModificationTime(LocalDateTime.now());
         cdDto.setLink(linkFieldText);
-        cdDto.setTitle(linkFieldText);
+        cdDto.setTitle(titleFieldText);
         cdDto.setUserId(UserSession.getInstance().getUserDto().getId());
         cdDto.setCreator(creatorFieldText);
         cdDto.setAlbum(albumFieldText);
@@ -106,6 +132,7 @@ public class NewAlbumController implements Initializable {
                 "Content ",
                 "You have added cd!",
                 "Thank you");
+        UserSession.getInstance().getParameters().remove("cdIdToDisplay");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         context.publishEvent(new StageReadyEvent(stage, HomePageController.class));
     }
