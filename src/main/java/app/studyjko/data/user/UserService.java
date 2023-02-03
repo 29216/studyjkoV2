@@ -2,17 +2,13 @@ package app.studyjko.data.user;
 
 import app.studyjko.Utils.ConversionUtil;
 import app.studyjko.model.UserEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
-
-    @Autowired
-    private UserRepository userRepository;
+public record UserService(UserRepository userRepository) {
 
     public void save(UserDto userDto) {
         userRepository.save(mapDtoToEntity(userDto));

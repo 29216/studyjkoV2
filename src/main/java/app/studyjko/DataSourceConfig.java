@@ -12,7 +12,7 @@ public class DataSourceConfig {
 
     @Bean
     public DataSource getDataSource() {
-        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+        DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
         dataSourceBuilder.url("jdbc:mysql://192.166.219.220/alebaza");
         dataSourceBuilder.username("alebaza");

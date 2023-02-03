@@ -2,16 +2,15 @@ package app.studyjko.data.cd;
 
 import app.studyjko.Utils.ConversionUtil;
 import app.studyjko.model.CdEntity;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CdService {
-    @Autowired
-    private CdRepository cdRepository;
+    private final CdRepository cdRepository;
 
     public void save(CdDto cdDto) {
         cdRepository.save(mapDtoToEntity(cdDto));

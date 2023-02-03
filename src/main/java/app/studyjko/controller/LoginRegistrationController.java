@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
@@ -105,7 +104,7 @@ public class LoginRegistrationController implements Initializable {
         });
     }
 
-    public void LogIn(ActionEvent event) throws IOException {
+    public void LogIn(ActionEvent event) {
         try{
             String login = loginField.getText();
             String pass = passField.getText();

@@ -1,31 +1,26 @@
 package app.studyjko.controller;
 
+import app.studyjko.ParamKey;
 import app.studyjko.UserSession;
 import app.studyjko.Utils.AlertTypeEnum;
 import app.studyjko.Utils.DisplayAlert;
 import app.studyjko.application.StageReadyEvent;
 import app.studyjko.data.cd.CdDto;
 import app.studyjko.data.cd.CdService;
-import app.studyjko.data.user.UserDto;
-import app.studyjko.data.user.UserService;
 import app.studyjko.model.CdEntity;
-import ch.qos.logback.core.joran.event.BodyEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import lombok.RequiredArgsConstructor;
 import net.rgielen.fxweaver.core.FxmlView;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -33,6 +28,7 @@ import java.util.ResourceBundle;
 
 @Component
 @FxmlView("NewAlbumPage.fxml")
+@RequiredArgsConstructor
 public class NewAlbumController implements Initializable {
     @FXML
     private Button closeButton;
@@ -42,9 +38,6 @@ public class NewAlbumController implements Initializable {
 
     @FXML
     private Button manipulateCd;
-
-    @Autowired
-    private CdService cdService;
 
     @FXML
     private TextField creatorField;
@@ -57,8 +50,9 @@ public class NewAlbumController implements Initializable {
     @FXML
     private TextField linkField;
 
-    @Autowired
-    private ApplicationContext context;
+    private final ApplicationContext context;
+
+    private final CdService cdService;
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {    //dodać obsługę wykonawcy
@@ -78,8 +72,8 @@ public class NewAlbumController implements Initializable {
             obj.setIconified(true);
         });
 
-        if (UserSession.getInstance().getParameters().containsKey("cdIdToDisplay")){
-            CdEntity cdEntity = cdService.findCdById(Long.valueOf(UserSession.getInstance().getParameters().get("cdIdToDisplay")));
+        if (UserSession.getInstance().getParameters().containsKey(ParamKey.CD_ID_TO_DISPLAY)){
+            CdEntity cdEntity = cdService.findCdById(Long.valueOf(UserSession.getInstance().getParameters().get(ParamKey.CD_ID_TO_DISPLAY)));
             if (cdEntity == null) {
                 return;
             }
@@ -92,12 +86,12 @@ public class NewAlbumController implements Initializable {
 
     }
 
-
     public void GoBack(ActionEvent event) {
-        UserSession.getInstance().getParameters().remove("cdIdToDisplay");
+        UserSession.getInstance().getParameters().remove(ParamKey.CD_ID_TO_DISPLAY);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         context.publishEvent(new StageReadyEvent(stage, HomePageController.class));
     }
+
     public void Add(ActionEvent event) {//AddButton
 
         String creatorFieldText = creatorField.getText();
@@ -115,8 +109,8 @@ public class NewAlbumController implements Initializable {
             }
         }
         CdDto cdDto;
-        if (UserSession.getInstance().getParameters().containsKey("cdIdToDisplay")){
-            CdEntity cdEntity = cdService.findCdById(Long.valueOf(UserSession.getInstance().getParameters().get("cdIdToDisplay")));
+        if (UserSession.getInstance().getParameters().containsKey(ParamKey.CD_ID_TO_DISPLAY)){
+            CdEntity cdEntity = cdService.findCdById(Long.valueOf(UserSession.getInstance().getParameters().get(ParamKey.CD_ID_TO_DISPLAY)));
             cdDto = cdService.mapEntityToDto(cdEntity);
         } else
             cdDto = new CdDto();
@@ -130,9 +124,9 @@ public class NewAlbumController implements Initializable {
         cdService.save(cdDto);
         DisplayAlert.displayAlert(AlertTypeEnum.INFORMATION.getAlertType(),
                 "Content ",
-                "You have added cd!",
+                UserSession.getInstance().getParameters().containsKey(ParamKey.CD_ID_TO_DISPLAY) ? "You have updated cd!" : "You have added cd!",
                 "Thank you");
-        UserSession.getInstance().getParameters().remove("cdIdToDisplay");
+        UserSession.getInstance().getParameters().remove(ParamKey.CD_ID_TO_DISPLAY);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         context.publishEvent(new StageReadyEvent(stage, HomePageController.class));
     }
