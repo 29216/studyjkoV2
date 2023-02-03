@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../NewAlbumPage.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.studyjko.controller.NewAlbumController">
+<BorderPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../NewAlbumPage.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.studyjko.controller.NewAlbumController">
     <top>
         <ToolBar id="toolBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="43.0" prefWidth="160.0" styleClass="toolBar" BorderPane.alignment="CENTER">
             <items>
@@ -102,7 +102,7 @@
                               </VBox>
                               <VBox prefHeight="400.0" prefWidth="600.0">
                                   <children>
-                              <TextField id="TextBoxCreator" fx:id="albumField1" layoutX="10.0" layoutY="60.0" minHeight="60.0" minWidth="300.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="TextBox">
+                              <TextField id="TextBoxCreator" fx:id="creatorField" layoutX="10.0" layoutY="60.0" minHeight="60.0" minWidth="300.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="TextBox">
                                  <font>
                                     <Font name="JetBrains Mono Regular" size="24.0" />
                                  </font>

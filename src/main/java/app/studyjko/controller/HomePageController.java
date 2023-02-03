@@ -44,8 +44,6 @@ public class HomePageController implements Initializable {
 
     private List<CdEntity> cdDtoList;
 
-    private String currentTitle;
-
     private final FxWeaver fxWeaver;
 
     @FXML

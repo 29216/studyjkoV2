@@ -39,6 +39,8 @@ public class NewAlbumController implements Initializable {
     @FXML
     private Button minimizeButton;
 
+    @Autowired
+    private CdService cdService;
 
     @FXML
     private TextField creatorField;
@@ -50,9 +52,6 @@ public class NewAlbumController implements Initializable {
 
     @FXML
     private TextField linkField;
-
-    @FXML
-    private Label greetingLabel;
 
     @Autowired
     private ApplicationContext context;
@@ -80,13 +79,35 @@ public class NewAlbumController implements Initializable {
 
     public void Add(ActionEvent event) {//AddButton
 
+        String creatorFieldText = creatorField.getText();
+        String albumFieldText = albumField.getText();
+        String titleFieldText = titleField.getText();
+        String linkFieldText = linkField.getText();
 
-
-
-
+        if (creatorFieldText.isBlank() || albumFieldText.isBlank() || titleFieldText.isBlank() || linkFieldText.isBlank()) {
+            boolean result = DisplayAlert.displayAlert(AlertTypeEnum.ERROR.getAlertType(),
+                    "Content Error",
+                    "You have empty fields!",
+                    "Make sure to complete them");
+            if (result) {
+                return;
+            }
+        }
+        CdDto cdDto = new CdDto();
+        cdDto.setCreationTime(LocalDateTime.now());
+        cdDto.setModificationTime(LocalDateTime.now());
+        cdDto.setLink(linkFieldText);
+        cdDto.setTitle(linkFieldText);
+        cdDto.setUserId(UserSession.getInstance().getUserDto().getId());
+        cdDto.setCreator(creatorFieldText);
+        cdDto.setAlbum(albumFieldText);
+        cdService.save(cdDto);
+        DisplayAlert.displayAlert(AlertTypeEnum.INFORMATION.getAlertType(),
+                "Content ",
+                "You have added cd!",
+                "Thank you");
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        context.publishEvent(new StageReadyEvent(stage, HomePageController.class));
     }
-
-
-
 
 }

@@ -27,6 +27,36 @@ public class CdEntity {
     @Basic
     @Column(name = "link", nullable = true, length = 256)
     private String link;
+    @Basic
+    @Column(name = "creator", nullable = true, length = 256)
+    private String creator;
+    @Basic
+    @Column(name = "album", nullable = true, length = 256)
+    private String album;
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
 
     public long getId() {
         return id;

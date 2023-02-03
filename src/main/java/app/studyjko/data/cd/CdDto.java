@@ -1,13 +1,11 @@
 package app.studyjko.data.cd;
-
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
 import lombok.Data;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
 public class CdDto {
     private long id;
     private LocalDateTime creationTime;
@@ -15,12 +13,7 @@ public class CdDto {
     private long userId;
     private String title;
     private String link;
+    private String creator;
+    private String album;
 
-    public CdDto(String title) {
-        this.creationTime = LocalDateTime.now();
-        this.modificationTime = LocalDateTime.now();
-        this.userId = 1;
-        this.title = title;
-        this.link = "link";
-    }
 }
