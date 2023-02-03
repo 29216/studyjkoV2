@@ -10,4 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface CdRepository extends JpaRepository<CdEntity, Long> {
+    List<CdEntity> findCdEntitiesByUserId(Long id);
 }

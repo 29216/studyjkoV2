@@ -4,28 +4,29 @@ import app.studyjko.UserSession;
 import app.studyjko.Utils.AlertTypeEnum;
 import app.studyjko.Utils.DisplayAlert;
 import app.studyjko.application.StageReadyEvent;
+import app.studyjko.data.cd.CdDto;
+import app.studyjko.data.cd.CdService;
 import app.studyjko.model.CdEntity;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import net.rgielen.fxweaver.core.FxContextLoader;
-import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
-import java.util.ArrayList;
+import java.sql.Timestamp;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 @Component
 @FxmlView("home-page.fxml")
@@ -38,13 +39,19 @@ public class HomePageController implements Initializable {
 
     @Autowired
     private ApplicationContext context;
+    @Autowired
+    private CdService cdService;
 
-    private List<CdEntity> cdEntityList;
+    private List<CdEntity> cdDtoList;
+
+    private String currentTitle;
 
     private final FxWeaver fxWeaver;
 
     @FXML
-    private GridPane gridPane;
+    private ListView<CdEntity> myListView;
+
+    private CdEntity currentCd;
 
     @Autowired
     public HomePageController(FxWeaver fxWeaver) {
@@ -69,58 +76,16 @@ public class HomePageController implements Initializable {
             obj.setIconified(true);
         });
 
-        cdEntityList = new ArrayList<>(
-                getCdEntityList()
-        );
-        int column = 0;
-        int row = 1;
+        cdDtoList = cdService.findCdsByUserId(UserSession.getInstance().getUserDto().getId());
 
-        // still now working (?)
+//        myListView.getItems().addAll(cdDtoList.stream().map(CdDto::getTitle).toList());
+        myListView.getItems().addAll(cdDtoList);
 
-//        for(CdEntity cdEntity : cdEntityList){
-//            FxControllerAndView<CDBoxController, AnchorPane> cdBox = fxWeaver.load(CDBoxController.class);
-//            CDBoxController cdController = cdBox.getController();
-//            cdController.setCD(cdEntity);
-//
-//            if(column == 3){
-//                column = 0;
-//                ++row;
-//            }
-//
-//            gridPane.add((Node) cdBox, column++, row);
-//        }
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, cdEntity, t1) -> {
+            currentCd = myListView.getSelectionModel().getSelectedItem();
+            System.out.println(currentCd.getId());
+        });
 
-    }
-
-    private List<CdEntity> getCdEntityList(){
-        List<CdEntity> cdEntities = new ArrayList<>();
-
-        CdEntity cdEntity = new CdEntity();
-        cdEntity.setTitle("Lorem Dolor");
-        cdEntity.setCreatorId(2);
-        cdEntities.add(cdEntity);
-
-        cdEntity = new CdEntity();
-        cdEntity.setTitle("Lorem Dolor");
-        cdEntity.setCreatorId(4);
-        cdEntities.add(cdEntity);
-
-        cdEntity = new CdEntity();
-        cdEntity.setTitle("Lorem Dolor");
-        cdEntity.setCreatorId(1);
-        cdEntities.add(cdEntity);
-
-        cdEntity = new CdEntity();
-        cdEntity.setTitle("Lorem Dolor");
-        cdEntity.setCreatorId(10);
-        cdEntities.add(cdEntity);
-
-        cdEntity = new CdEntity();
-        cdEntity.setTitle("Lorem Dolor");
-        cdEntity.setCreatorId(5);
-        cdEntities.add(cdEntity);
-
-        return cdEntities;
     }
 
 

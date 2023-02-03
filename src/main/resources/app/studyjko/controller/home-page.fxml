@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../home-page.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.studyjko.controller.HomePageController">
+<BorderPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../home-page.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.studyjko.controller.HomePageController">
     <top>
         <ToolBar id="toolBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="43.0" prefWidth="200.0" styleClass="toolBar" BorderPane.alignment="CENTER">
             <items>
@@ -51,19 +51,7 @@
                     <image>
                         <Image url="@../../../group/studyjko/img/background_studio_image.png" />
                     </image></ImageView>
-            <ScrollPane prefHeight="800.0" prefWidth="1160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <content>
-                  <GridPane prefHeight="798.0" prefWidth="1158.0" styleClass="grid-pane">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints maxHeight="394.0" minHeight="10.0" prefHeight="127.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="671.0" minHeight="10.0" prefHeight="671.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                  </GridPane>
-               </content>
-            </ScrollPane>
+            <ListView fx:id="myListView" layoutX="59.0" layoutY="49.0" prefHeight="594.0" prefWidth="892.0" style="-fx-background-color: transparent;" />
             </children>
         </AnchorPane>
     </center>

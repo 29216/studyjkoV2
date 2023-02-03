@@ -2,9 +2,7 @@ package app.studyjko.model;
 
 import jakarta.persistence.*;
 
-import java.sql.Timestamp;
-import java.util.Arrays;
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -16,13 +14,13 @@ public class CdEntity {
     private long id;
     @Basic
     @Column(name = "creationTime", nullable = true)
-    private Timestamp creationTime;
+    private LocalDateTime creationTime;
     @Basic
     @Column(name = "modificationTime", nullable = false)
-    private Timestamp modificationTime;
+    private LocalDateTime modificationTime;
     @Basic
-    @Column(name = "creatorId", nullable = false)
-    private long creatorId;
+    @Column(name = "userId", nullable = false)
+    private long userId;
     @Basic
     @Column(name = "title", nullable = true, length = 256)
     private String title;
@@ -38,28 +36,28 @@ public class CdEntity {
         this.id = id;
     }
 
-    public Timestamp getCreationTime() {
+    public LocalDateTime getCreationTime() {
         return creationTime;
     }
 
-    public void setCreationTime(Timestamp creationTime) {
+    public void setCreationTime(LocalDateTime creationTime) {
         this.creationTime = creationTime;
     }
 
-    public Timestamp getModificationTime() {
+    public LocalDateTime getModificationTime() {
         return modificationTime;
     }
 
-    public void setModificationTime(Timestamp modificationTime) {
+    public void setModificationTime(LocalDateTime modificationTime) {
         this.modificationTime = modificationTime;
     }
 
-    public long getCreatorId() {
-        return creatorId;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setCreatorId(long creatorId) {
-        this.creatorId = creatorId;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getTitle(){
@@ -75,12 +73,16 @@ public class CdEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CdEntity cdEntity = (CdEntity) o;
-        return id == cdEntity.id && creatorId == cdEntity.creatorId && Objects.equals(creationTime, cdEntity.creationTime) && Objects.equals(modificationTime, cdEntity.modificationTime) && Objects.equals(title, cdEntity.title);
+        return id == cdEntity.id && userId == cdEntity.userId && Objects.equals(creationTime, cdEntity.creationTime) && Objects.equals(modificationTime, cdEntity.modificationTime) && Objects.equals(title, cdEntity.title);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(id, creationTime, modificationTime, creatorId, title);
+        int result = Objects.hash(id, creationTime, modificationTime, userId, title);
         return result;
+    }
+
+    public String toString() {
+        return this.getTitle();
     }
 }
