@@ -64,10 +64,18 @@
 -fx-text-fill: white;
 -fx-background-radius:150;
 -fx-font-size:15px;
+    -fx-padding: 15px ;
+    -fx-background-insets: 0px, 20px ;
 
+}
+.list-view {
+    -fx-padding: 15px ;
+}
 
-
-
+.list-cell:empty {
+    -fx-padding: 2px ;
+    -fx-background-color: transparent ;
+    -fx-background-insets: 0 ;
 }
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
     -fx-background-color: #2E2E2E;
