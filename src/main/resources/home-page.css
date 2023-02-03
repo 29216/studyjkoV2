@@ -59,3 +59,18 @@
 .scroll-pane > .viewport {
    -fx-background-color: none;
 }
+.list-cell{
+-fx-background-color:#1E1E1E;
+-fx-text-fill: white;
+-fx-background-radius:150;
+-fx-font-size:15px;
+
+
+
+
+}
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: #2E2E2E;
+    -fx-text-fill: white;
+}
+
