@@ -40,6 +40,9 @@ public class NewAlbumController implements Initializable {
     private Button manipulateCd;
 
     @FXML
+    private Button DeleteBtn;
+
+    @FXML
     private TextField creatorField;
     @FXML
     private TextField albumField;
@@ -71,7 +74,7 @@ public class NewAlbumController implements Initializable {
             Stage obj = (Stage) minimizeButton.getScene().getWindow();
             obj.setIconified(true);
         });
-
+        DeleteBtn.setVisible(false);
         if (UserSession.getInstance().getParameters().containsKey(ParamKey.CD_ID_TO_DISPLAY)){
             CdEntity cdEntity = cdService.findCdById(Long.valueOf(UserSession.getInstance().getParameters().get(ParamKey.CD_ID_TO_DISPLAY)));
             if (cdEntity == null) {
@@ -82,11 +85,19 @@ public class NewAlbumController implements Initializable {
             titleField.setText(cdEntity.getTitle());
             linkField.setText(cdEntity.getLink());
             manipulateCd.setText("Update");
+            DeleteBtn.setVisible(true);
         }
 
     }
 
     public void GoBack(ActionEvent event) {
+        UserSession.getInstance().getParameters().remove(ParamKey.CD_ID_TO_DISPLAY);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        context.publishEvent(new StageReadyEvent(stage, HomePageController.class));
+    }
+
+    public void deleteCd(ActionEvent event) {
+        cdService.deleteCd(Long.valueOf(UserSession.getInstance().getParameters().get(ParamKey.CD_ID_TO_DISPLAY)));
         UserSession.getInstance().getParameters().remove(ParamKey.CD_ID_TO_DISPLAY);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         context.publishEvent(new StageReadyEvent(stage, HomePageController.class));
