@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../NewAlbumPage.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.studyjko.controller.NewAlbumController">
+<BorderPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../NewAlbumPage.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.studyjko.controller.NewAlbumController">
     <top>
         <ToolBar id="toolBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="43.0" prefWidth="160.0" styleClass="toolBar" BorderPane.alignment="CENTER">
             <items>
@@ -60,7 +60,7 @@
                                 <Font size="20.0" />
                             </font>
                         </Label>
-                  <Button layoutX="580.0" layoutY="576.0" mnemonicParsing="false" onAction="#GoBack" onMouseClicked="#Add" prefHeight="70.0" prefWidth="330.0" style="-fx-background-radius: 150; -fx-background-color: #6D376F;" text="GoBack" textFill="WHITE">
+                  <Button layoutX="479.0" layoutY="576.0" mnemonicParsing="false" onAction="#GoBack" onMouseClicked="#Add" prefHeight="70.0" prefWidth="330.0" style="-fx-background-radius: 150; -fx-background-color: #6D376F;" text="GoBack" textFill="WHITE">
                      <font>
                         <Font name="JetBrains Mono Regular" size="24.0" />
                      </font>
@@ -158,7 +158,12 @@
                                   </children>
                               </VBox>
                      </children></HBox>
-                  <Button fx:id="manipulateCd" layoutX="250.0" layoutY="576.0" mnemonicParsing="false" onAction="#Add" onMouseClicked="#Add" prefHeight="70.0" prefWidth="330.0" style="-fx-background-radius: 150; -fx-background-color: #6D376F;" text="Add" textFill="WHITE">
+                  <Button fx:id="manipulateCd" layoutX="149.0" layoutY="576.0" mnemonicParsing="false" onAction="#Add" onMouseClicked="#Add" prefHeight="70.0" prefWidth="330.0" style="-fx-background-radius: 150; -fx-background-color: #6D376F;" text="Add" textFill="WHITE">
+                     <font>
+                        <Font name="JetBrains Mono Regular" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="DeleteBtn" layoutX="816.0" layoutY="576.0" mnemonicParsing="false" onAction="#deleteCd" onMouseClicked="#Add" prefHeight="70.0" prefWidth="330.0" style="-fx-background-radius: 150; -fx-background-color: #6D376F;" text="Delete" textFill="WHITE">
                      <font>
                         <Font name="JetBrains Mono Regular" size="24.0" />
                      </font>

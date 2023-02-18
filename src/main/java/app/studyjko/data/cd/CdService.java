@@ -30,4 +30,8 @@ public class CdService {
     public CdEntity findCdById(Long id){
         return cdRepository.findById(id).orElse(null);
     }
+
+    public void deleteCd(Long id){
+        cdRepository.deleteById(id);
+    }
 }
