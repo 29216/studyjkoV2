@@ -95,4 +95,9 @@ public class HomePageController implements Initializable {
         }
     }
 
+    public void rulesRedirect(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        context.publishEvent(new StageReadyEvent(stage, RulesController.class));
+    }
+
 }
